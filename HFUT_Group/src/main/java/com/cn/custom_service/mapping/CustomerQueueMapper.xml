@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3.dtd">
+<mapper namespace="com.cn.custom_service.dao.CustomerQueueMapper">
+	
+	<select id="getqueue"  resultType="Queue">
+		
+		select * from queue
+
+	</select>
+	
+	<select id="addnumeber"  >
+		
+		update queue set number = number + 1 where cid = #{cid}
+
+	</select>
+	
+	<select id="subnumeber"  >
+		
+		update queue set number = number - 1 where cid = #{cid}
+
+	</select>
+	
+	<insert id="insert"  parameterType="customerqueue">
+		
+		insert  into  customerqueue values (#{uid} , #{cid} , #{number})
+
+	</insert>
+	
+	<select id="delete"  >
+		
+		delete from customerqueue where uid = #{uid}
+		
+	</select>
+	
+	<select id="update"  >
+		
+		update customerqueue set number = number-1 where cid = #{0} and number > #{1}
+		
+	</select>
+	
+	<select id="getnumber"  resultType="CustomerQueue">
+		
+		select * from customerqueue where uid = #{uid}
+		
+	</select>
+	<select id="getqueuebyId"  resultType="Queue">
+		
+		select * from queue where cid = #{0}
+		
+	</select>
+	
+	<select id="selectchat"  resultType="Queue">
+		
+		select distinct cid from chat where uid = #{1}
+		
+	</select>
+	
+</mapper>

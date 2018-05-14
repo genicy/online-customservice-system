@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://www.mybatis.org/dtd/mybatis-3.dtd">
+
+<mapper namespace="com.cn.custom_service.dao.CSAndCsStatusMapper">
+	
+	<select id="selectInforById" parameterType="int" resultType="CustomserviceAndCsStatus">
+		select distinct csStatus.cid,telno,serviceStatus,maxNum from customservice join csStatus on customservice.cid = csstatus.cid where csstatus.cid=#{id}
+	</select>
+	
+	<update id="updateTelno" parameterType="CustomserviceAndCsStatus">
+		update customservice set telno=#{telno} where cid = #{cid}
+	</update>
+	
+	<update id="updateServiceStatusAndMaxNum" parameterType="CustomserviceAndCsStatus">
+		update csstatus set servicestatus=#{serviceStatus},maxnum=#{maxNum} where cid = #{cid}
+	</update>
+</mapper>

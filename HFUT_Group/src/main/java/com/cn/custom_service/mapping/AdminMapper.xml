@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3.dtd">
+    
+<mapper namespace="com.cn.custom_service.dao.AdminMapper">
+
+	<select id="showservice"   resultType="CustomService">
+		
+		select * from customservice
+		
+	</select>
+	<select id="showservicebynum"   resultType="CustomService">
+		
+		select * from customservice order by serivcNnum desc
+		
+	</select>
+	<select id="showservicebyjudge"   resultType="CustomService">
+		
+		select * from customservice order by judge desc
+		
+	</select>
+	
+	<select id="showcustom"   resultType="chat">
+		
+		select distinct uid from chat where cid = #{0}
+		
+	</select>
+	
+	<select id="getend"   resultType="chat">
+		
+		select * from chat where cid = #{1} and uid = #{0} order by ctime desc LIMIT 1
+		
+	</select>
+
+</mapper>

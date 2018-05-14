@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3.dtd">
+    
+<mapper namespace="com.cn.custom_service.dao.ChatMapper">
+	
+	<select id="getcount"   resultType="int">
+		
+		select count(*) from chat where uid = #{0} and cid = #{1}
+		
+	</select>
+	
+	<select id="getchat"  resultType="Chat">
+		
+		select * from chat where uid = #{2} and cid = #{3} limit #{start},#{length}
+
+	</select>
+	
+	
+</mapper>

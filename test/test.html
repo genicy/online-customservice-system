@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #MEIQIA-PANEL-HOLDER {
+            float: right;
+            width:320px;
+            height:500px;
+            color:#FFF;
+            position:fixed;
+            right:0;
+            top:60px;
+            border-radius:10px;
+            z-index:1000
+        }
+    </style>
+    <script type="text/javascript">
+       function  getUser() {
+            var iframe = document.getElementById('iframe')
+            var data = []
+            data.push(document.getElementById('data').value);
+            data.push('王铁柱');
+            data.push('男');
+            data.push('新房客');
+            data.push('http://localhost:8082/static/userimage.jpg')
+            data.push('20')
+            var target = 'http://localhost:8082/'
+            iframe.contentWindow.postMessage(data,target)
+        }
+    </script>
+</head>
+<body>
+<div style="height: 2000px" >
+    <div></div>
+    <input type="text" id="data" value="12345678"><input type="button" onclick="getUser()" value="点击非游客登录" >
+    <img src="http://localhost:8082/static/back.jpg" style="width: 100%">
+<div style="visibility: visible; z-index: 2147483647;" id="MEIQIA-PANEL-HOLDER">
+    <iframe  id="iframe" src="http://localhost:8082/" frameborder="0" scrolling="no" allowtransparency="true" style="display: block;" height="500px"
+    ></iframe></div>
+</div>
+</body>
+</html>

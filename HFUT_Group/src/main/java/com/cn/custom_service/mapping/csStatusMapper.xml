@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://www.mybatis.org/dtd/mybatis-3.dtd">
+
+<mapper namespace="com.cn.custom_service.dao.csStatusMapper">
+	<update id="updataServiceStatus" parameterType="csStatus">
+		update csStatus set servicestatus=#{servicestatus} where cid=#{cid}
+	</update>	
+	
+	<select id="selectStatus" parameterType="int" resultType="csStatus">
+		select * from csStatus where cid=#{id}
+	</select>
+</mapper>

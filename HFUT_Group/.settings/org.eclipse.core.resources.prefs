@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/cn/custom_service/controller/CustomerLogin.java=UTF-8
+encoding//src/main/java/com/cn/custom_service/controller/CustomerRegister.java=UTF-8
+encoding//src/main/java/com/cn/custom_service/dao/CustomerDao.java=UTF-8
+encoding//src/main/java/com/cn/custom_service/service/CustomerService.java=UTF-8
+encoding//src/main/java/com/cn/custom_service/service/impl/CustomerServiceImpl.java=UTF-8
+encoding//src/main/java/com/cn/custom_service/service/impl/SendMailServiceImpl.java=UTF-8

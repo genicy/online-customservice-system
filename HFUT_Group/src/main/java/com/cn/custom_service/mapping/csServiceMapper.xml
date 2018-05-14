@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3.dtd">
+<mapper namespace="com.cn.custom_service.dao.csServiceMapper" >
+    <select id="getInfo" parameterType="integer" resultType="Cs">
+        select * from customservice where cid=#{i}
+    </select>
+    
+    <update id="setImg">
+        update customservice set images=#{0} where cid = #{1}
+    </update>
+    
+    <select id="checkPwd" resultType="Cs">
+        select * from customservice where cid=#{0} and password=#{1}
+    </select>
+    
+    <update id="setNewPwd">
+        update customservice set password=#{1} where cid =#{0}
+    </update>
+    
+    <select id="selectCs" resultType="csStatus">
+        select * from csStatus where servicestatus= 1 and numbering &lt; maxNum
+     </select>
+     
+     <update id="updateNumbering" >
+         update csStatus set numbering=#{1} where cid = #{0}
+     </update>
+     
+     <insert id="saveChat" parameterType="Chat">
+         insert into chat(uid,cid,dir,cchat,ctime,uip,cip) values(#{uid},#{cid},#{dir},#{cchat},#{ctime},#{uip},#{cip})
+     </insert>
+     
+     <select id="getChatlist" resultType="Chat">
+         select * from chat where uid = #{0} and cid =#{1} order by id desc limit #{2}
+     </select>
+    
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3.dtd">
+
+<mapper namespace="com.cn.custom_service.dao.CustomerDao">
+<select id="CustomerLogin" resultType="Customer">
+      SELECT * FROM customservice WHERE mailaddress = #{0} and password = #{1}
+     
+  </select>
+  <insert id="CustomerRegister" parameterType="Customer">
+      insert into customservice(cid, password, images, gender, age, mailaddress,
+      telno) values(#{cid}, #{password}, #{images}, #{gender}, #{age}, #{mailaddress}, #{telno})
+  
+  </insert>
+  <insert id="customerStatus">
+      
+  	insert into csstatus (cid,  servicestatus) values(#{0}, #{1})
+  
+  </insert>
+  <select id="getCSByMailaddress" resultType="int" parameterType="String">
+  
+  		select cid from customservice where mailaddress = #{0}
+  
+  </select>
+  
+  <select id="getStatusByMailaddress" resultType="int" parameterType="String">
+  		select status from customservice where mailaddress = #{0}
+  </select>
+  
+  <update id="updateStatus" parameterType="int">
+  		update csstatus set servicestatus = 1 where cid = #{0};
+  </update>
+  
+  <update id="activeStatus" parameterType="String">
+  		update customservice set status = 0 where mailaddress = #{0}
+  </update>
+</mapper>
+

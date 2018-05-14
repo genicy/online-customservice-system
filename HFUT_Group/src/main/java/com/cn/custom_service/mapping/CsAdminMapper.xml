@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3.dtd">
+    
+<mapper namespace="com.cn.custom_service.dao.CsAdminDao">
+	
+	<select id="getHistoryTolNum"   resultType="Integer">
+		select sum(serivcNnum) from customservice
+	</select>
+	
+	<select id="getCurNum"  resultType="Integer">
+		
+		select sum(numbering) from csStatus
+
+	</select>
+	
+	<select id="getCurRankNum"  resultType="Integer">
+		
+		select sum(number) from queue
+
+	</select>
+	<select id="customerAdminLogin"  resultType="Admin">
+		select * from csadmin where mailaddress = #{0} and password = #{1}
+	</select>
+</mapper>
